@@ -1,0 +1,61 @@
+import 'dart:html';
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Responsive UI"),
+          actions: [
+            TextButton(
+              onPressed: () {},
+              child: Text("Home", style: TextStyle(color: Color(0xff1f1e1e))),
+            ),
+            TextButton(
+              onPressed: () {},
+              child:
+                  Text("Profile", style: TextStyle(color: Color(0xff0a0a0a))),
+            ),
+            TextButton(
+              onPressed: () {},
+              child:
+                  Text("Settings", style: TextStyle(color: Color(0xff1f1d1d))),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("About", style: TextStyle(color: Color(0xff2c2a2a))),
+            ),
+          ],
+        ),
+        body: Container(
+          //Background wallpaper
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/wallpaper.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: width < 600
+                ? Text(
+                    "Mobile Screen",
+                    style: TextStyle(fontSize: 25),
+                  )
+                : Text(
+                    "Tablet or Desktop Screen",
+                    style: TextStyle(fontSize: 25),
+                  ),
+          ),
+        ),
+      ),
+    );
+  }
+}
